@@ -56,7 +56,9 @@ except Exception as e:
 
 # Load imagenet labels
 try:
-    hf_token = "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"
+    hf_token = os.environ.get("HF_TOKEN")
+    if not hf_token:
+        print("[WARNING] HF_TOKEN environment variable not set. Downloading models might fail if they require authentication.")
     labels_path = hf_hub_download(repo_id="timm/mobilenetv2_100.ra_in1k", filename="config.json", token=hf_token)
     with open(labels_path, "r") as f:
         imagenet_config = json.load(f)
@@ -88,7 +90,7 @@ def map_class_to_mood(class_name):
 
 def get_mobilenet_onnx():
     print("[AI] Downloading/Verifying MobileNetV2 ONNX model...")
-    hf_token = "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"
+    hf_token = os.environ.get("HF_TOKEN")
     onnx_path = hf_hub_download(repo_id="Kalray/mobilenet-v2", filename="mobilenetv2.onnx", token=hf_token)
     return onnx_path
 

@@ -35,7 +35,14 @@ All of this is controlled via a beautiful, premium **Glassmorphism Web Dashboard
    pip install mss opencv-python numpy requests pyaudiowpatch fastapi uvicorn onnxruntime-directml huggingface_hub
    ```
 
-2. **Configure Your Application:**
+2. **Set Environment Variable (Hugging Face):**
+   The AI models are hosted on Hugging Face. You must provide a generic read-access token.
+   ```bash
+   # Windows PowerShell
+   $env:HF_TOKEN="your_hf_access_token"
+   ```
+
+3. **Configure Your Application:**
    Open `sync.py` and modify the default global `CONFIG` dictionary at the top to match your setup:
    ```python
    CONFIG = {
