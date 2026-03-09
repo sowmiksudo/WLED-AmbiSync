@@ -6,6 +6,8 @@ Going beyond standard screen mirroring, this system uses an **AI Scene Classific
 
 All of this is controlled via a beautiful, premium **Glassmorphism Web Dashboard**.
 
+Video Demonstration: [LinkedIn Post](https://www.linkedin.com/posts/sowmiksudo_artificialintelligence-machinelearning-computervision-ugcPost-7436823315102617600-zxQ9)
+
 ---
 
 ## ✨ Key Features
