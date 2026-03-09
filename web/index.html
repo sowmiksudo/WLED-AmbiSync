@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WLED AmbiSync Dashboard</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="background-effect"></div>
+    <div class="container">
+        <header>
+            <h1>AmbiSync <span class="badge">AI-Powered</span></h1>
+            <div class="connection-status" id="connection-status">
+                <div class="status-indicator"></div> Connected
+            </div>
+        </header>
+
+        <div class="dashboard-grid">
+            <!-- Mood Card -->
+            <div class="card mood-card glass-panel" id="mood-panel">
+                <h2>Current Mood</h2>
+                <div class="mood-display">
+                    <span id="current-mood">Syncing...</span>
+                </div>
+                <div class="ai-status">
+                    <small>AI engine listening for scene changes</small>
+                </div>
+            </div>
+
+            <!-- Global Controls -->
+            <div class="card controls-card glass-panel">
+                <div class="setting-header">
+                    <h2>Settings</h2>
+                    <div class="toggle-container">
+                        <button id="audio-sync-btn" class="btn btn-audio btn-audio-active">Bass Audio Sync: ON</button>
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <label for="manual-mood">Lighting Mode</label>
+                    <select id="manual-mood" class="glass-select">
+                        <option value="Smart">Smart (AI Auto)</option>
+                        <option value="Mirror">Mirror</option>
+                        <option value="Action/Explosion">Action/Explosion</option>
+                        <option value="Horror/Dark">Horror/Dark</option>
+                        <option value="Nature/Calm">Nature/Calm</option>
+                        <option value="Gaming (Vibrant)">Gaming (Vibrant)</option>
+                        <option value="Static/Text">Static/Text</option>
+                        <option value="Sci-Fi / Tech">Sci-Fi / Tech</option>
+                        <option value="Sports / Active">Sports / Active</option>
+                        <option value="Movie (Drama)">Movie (Drama)</option>
+                    </select>
+                </div>
+
+                <div class="control-group">
+                    <label for="base-brightness">Base Brightness: <span id="brightness-val">0.10</span></label>
+                    <input type="range" id="base-brightness" min="0.05" max="1.0" step="0.01" value="0.10">
+                </div>
+
+                <div class="control-group">
+                    <label for="bass-sensitivity">Bass Sensitivity: <span id="bass-val">3.0</span></label>
+                    <input type="range" id="bass-sensitivity" min="0.0" max="10.0" step="0.1" value="3.0">
+                </div>
+
+                <div class="control-group">
+                    <label for="fps-target">Capture FPS: <span id="fps-val">60</span></label>
+                    <input type="range" id="fps-target" min="10" max="60" step="5" value="60">
+                </div>
+            </div>
+
+            <div class="card details-card glass-panel">
+                <h2>System Info</h2>
+                <ul class="info-list">
+                    <li><strong>WLED IP:</strong> <span id="wled-ip">Loading...</span></li>
+                    <li><strong>Total LEDs:</strong> <span id="total-leds">Loading...</span></li>
+                    <li><strong>Audio Reactivity:</strong> Active</li>
+                </ul>
+                <button class="btn btn-primary" id="refresh-btn">Force Refresh State</button>
+            </div>
+        </div>
+    </div>
+    <script src="/static/app.js"></script>
+</body>
+
+</html>
